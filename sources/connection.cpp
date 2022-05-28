@@ -2,7 +2,6 @@
 #include <boost/bind.hpp>
 
 #include "../includes/connection.hpp"
-//#include "../includes/connection_manager.hpp"
 #include "../includes/request_handler.hpp"
 
 namespace http {

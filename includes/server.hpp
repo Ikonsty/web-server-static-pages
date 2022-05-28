@@ -5,7 +5,6 @@
 #include <string>
 
 #include "../includes/connection.hpp"
-//#include "../includes/connection_manager.hpp"
 #include "../includes/request_handler.hpp"
 
 
@@ -47,12 +46,6 @@ private:
 
     /// Acceptor listen for incloming connections.
     boost::asio::ip::tcp::acceptor acceptor_;
-
-    // The connection manager which owns all live connections.
-    //connection_manager connection_manager_;
-
-    // The next socket to be accepted.
-    //boost::asio::ip::tcp::socket socket_;
 
     /// Next connection to be accepted.
     connection_ptr new_connection_;

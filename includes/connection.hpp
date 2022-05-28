@@ -45,9 +45,6 @@ private:
     /// Socket for the connection.
     boost::asio::ip::tcp::socket socket_;
 
-    // The manager for this connection.
-    //connection_manager& connection_manager_;
-
     /// The handler used to process the incloming request.
     request_handler& request_handler_;
 

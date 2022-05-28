@@ -1,6 +1,5 @@
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
-//#include <boost/shared_ptr.hpp>
 #include <vector>
 
 #include "../includes/server.hpp"
@@ -13,8 +12,6 @@ server::server(const std::string& address, const std::string& port,
     : thread_pool_size_(thread_pool_size),
       signals_(io_service_),
       acceptor_(io_service_),
-//      connection_manager_(),
-//      socket_(io_service_),
       new_connection_(),
       request_handler_(doc_root)
 {
@@ -57,21 +54,6 @@ void server::run() {
 }
 
 void server::start_accept() {
-//    acceptor_.async_accept(socket_,
-//                           [this](boost::system::error_code ec) {
-//       // Check whether the server was stopped by a signal before this
-//       // completion handler had a chance to run.
-//        if (!acceptor_.is_open()) {
-//            return;
-//        }
-
-//        if (!ec) {
-//            connection_manager_.start(std::make_shared<connection>(
-//                                          std::move(socket_), connection_manager_, request_handler_));
-//        }
-
-//        do_accept();
-//    });
     new_connection_.reset(new connection(io_service_, request_handler_));
     acceptor_.async_accept(new_connection_->socket(),
                            boost::bind(&server::handle_accept, this,
@@ -87,14 +69,6 @@ void server::handle_accept(const boost::system::error_code& e) {
 }
 
 void server::handle_stop() {
-//    signals_.async_wait(
-//                [this](boost::system::error_code /*ec*/, int /*signo*/) {
-//        // The server is stopped by cancelling all outstanding asynchronous
-//        // operations. Once all operations have finished the io_service::run()
-//        // call will exit.
-//        acceptor_.close();
-//        connection_manager_.stop_all();
-//    });
     io_service_.stop();
 }
 
