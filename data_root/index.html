@@ -1,10 +1,373 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Text</title>
-    </head>
-    <body>
-        <p>Hello, test!</p>
-    </body>
-</html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PillowTalk</title>
 
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Indie+Flower&display=swap" rel="stylesheet">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="main-header">
+			<h1 class="header-logo">
+				<a href="#">PillowTalk<img src="#" alt=""></a>
+			</h1>
+			
+			<nav class="header-nav">
+				<ul>
+					<li><a href="html/showcase.html" class="link-1">Popular arrivals</a></li>
+					<li><a href="html/first_shoe.html">Nike Air Force One MID id</a></li>
+					<li><a href="html/fall_collection.html">Fall collection</a></li>
+					<li><a href="html/latest_blog.html">Latest blog</a></li>
+					<li class="right">
+						<ul class="socials-list">
+							<li><a href="#"><i class="fab fa-facebook-square"></i></a</li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+						</ul>
+					</li>
+				</ul>	
+			</nav>
+
+			
+		</header>
+
+		
+
+
+		<main>
+
+			<!-- post header -->
+			<section class="carousel" aria-label="Gallery">
+				<ol class="carousel__viewport">
+				  <li id="carousel__slide1"
+					  tabindex="0"
+					  class="carousel__slide">
+					<div class="carousel__snapper">
+					  <a href="#carousel__slide4"
+						 class="carousel__prev">Go to last slide</a>
+	
+					  <a href="#carousel__slide2"
+						 class="carousel__next">Go to next slide</a>
+					</div>
+				  </li>
+				  <li id="carousel__slide2"
+					  tabindex="0"
+					  class="carousel__slide">
+					<div class="carousel__snapper"></div>
+					<a href="#carousel__slide1"
+					   class="carousel__prev">Go to previous slide</a>
+					<a href="#carousel__slide3"
+					   class="carousel__next">Go to next slide</a>
+				  </li>
+				  <li id="carousel__slide3"
+					  tabindex="0"
+					  class="carousel__slide">
+					<div class="carousel__snapper"></div>
+					<a href="#carousel__slide2"
+					   class="carousel__prev">Go to previous slide</a>
+					<a href="#carousel__slide4"
+					   class="carousel__next">Go to next slide</a>
+				  </li>
+				  <li id="carousel__slide4"
+					  tabindex="0"
+					  class="carousel__slide">
+					<div class="carousel__snapper"></div>
+					<a href="#carousel__slide3"
+					   class="carousel__prev">Go to previous slide</a>
+					<a href="#carousel__slide1"
+					   class="carousel__next">Go to first slide</a>
+				  </li>
+				</ol>
+				<aside class="carousel__navigation">
+				  <ol class="carousel__navigation-list">
+					<li class="carousel__navigation-item">
+					  <a href="#carousel__slide1"
+						 class="carousel__navigation-button">Go to slide 1</a>
+					</li>
+					<li class="carousel__navigation-item">
+					  <a href="#carousel__slide2"
+						 class="carousel__navigation-button">Go to slide 2</a>
+					</li>
+					<li class="carousel__navigation-item">
+					  <a href="#carousel__slide3"
+						 class="carousel__navigation-button">Go to slide 3</a>
+					</li>
+					<li class="carousel__navigation-item">
+					  <a href="#carousel__slide4"
+						 class="carousel__navigation-button">Go to slide 4</a>
+					</li>
+				  </ol>
+				</aside>
+			  </section>
+
+
+			<section>
+				<div style="display: inline-block;
+					height: 300px;
+					width: 100%;
+					">
+	
+					<img style="height:  100%;
+						position: relative;
+						top: 20px;
+						left: 0px;
+						right: 10%" src="img/top_sneaker.png">
+				</div>
+	
+				<div class="first_shoe" style="display: inline-block;">
+					<h1 style="display: inline-block;
+							   position: relative;
+    						   font-size: 25px;
+    						   bottom: 250px;
+							   left: 325px;
+							   ">
+						Nike Air Force One MID id</h1>
+					<p style="
+						display: inline-block;
+						position: relative;
+						bottom: 200px;
+						left: 50px;
+					">
+						Bring to the table win-win survival to ensure proactive domination.</br>
+					At the end of the day, going forward.
+					</p>
+
+					<a href="html/first_shoe.html">
+						View now
+					</a>
+				</div>
+			</section>
+	
+	
+			<!-- sneakers showcase -->
+		<section class = "showcase">
+			<h2 style="margin: 36px; font-size: 20px;">Popular Arrivals</h2>
+			<div class="floatshowcase">
+				<ul style="margin: auto">
+					<li class="offer">
+
+						<div class="arrival_div">
+
+							<img class="arrival_img" 
+								src="img/sneaker1.png" alt="">
+
+							<div class="arr_ref_div">
+
+								<div class="arr_inner"></div>
+
+								<a class="arr_ref" href="html/showcase.html">
+										View details
+								</a>
+							</div>
+						</div>
+
+						<p style="
+							color: #000;
+							font-size: 10px;
+							margin-bottom: 10px;
+							"> Nike Shoes <span style="
+							color: #999"> Shop Outdoors</span></p>
+						<p class="price">$125</p>
+					</li>
+
+					<li class="offer">
+						<div class="arrival_div">
+
+							<img class="arrival_img" 
+								src="img/sneaker_temp.jpeg" alt="">
+
+							<div class="arr_ref_div">
+
+								<div class="arr_inner"></div>
+
+								<a class="arr_ref" 
+									href="html/showcase.html">View details</a>
+							</div>
+						</div>
+
+						<p style="
+							color: #000;
+							font-size: 10px;
+							margin-bottom: 10px;
+							"> Nike Shoes <span style="
+							color: #999"> Shop Outdoors</span></p>
+						<p class="price">$260</p>
+					</li>
+
+					<li class="offer">
+						<div class="arrival_div">
+
+							<img class="arrival_img" 
+								src="img/sneaker3.png" alt="">
+
+							<div class="arr_ref_div">
+
+								<div class="arr_inner"></div>
+
+								<a class="arr_ref" 
+									href="html/showcase.html">View details</a>
+							</div>
+						</div>
+
+						<p style="
+							color: #000;
+							font-size: 10px;
+							margin-bottom: 10px;
+							"> Nike Shoes <span style="
+							color: #999"> Shop Outdoors</span></p>
+						<p class="price">$145</p>
+					</li>
+
+					<li class="offer">
+						<div class="arrival_div">
+
+							<img class="arrival_img" 
+								src="img/sneaker4.png" alt="">
+
+							<div class="arr_ref_div">
+
+								<div class="arr_inner"></div>
+
+								<a class="arr_ref" 
+									href="html/showcase.html">View details</a>
+							</div>
+						</div>
+
+						<p style="
+							color: #000;
+							font-size: 10px;
+							margin-bottom: 10px;
+							"> Nike Shoes <span style="
+							color: #999"> Shop Outdoors</span></p>
+						<p class="price">$350</p>
+					</li>
+
+				</ul>
+			</div>
+		</section>
+		<!-- sneakers showcase  END -->
+	
+	
+			<!-- seasonal collections info -->
+			<section class="fall_collection_section">
+				<div class="fall_collection_left_side">
+	
+					<h1>Pre- Fall Collections</h1>
+					<p>
+						Bring to the table win-win survival to ensure proactive domina-</br>
+						tion. At the end of the day, going forward, a new normal life that has evolved</br>
+						from generation X is on the runaway heading towards a streamlined cloud</br>
+						solution. User generated content in real-time will
+					</p>
+	
+					<a href="html/fall_collection.html" >View details</a>
+				</div>
+	
+				<article class="fall_collection_right_side">
+					<img  src="img/nice_woman.png" alt="oops">
+				</article>
+			</section>
+	
+	
+			<!-- note to a customer from a producer -->
+			<section class="quote_section">
+				<h1>We thought of you</h1>
+				<p>
+					Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Overrive the digital divide</br>
+					with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close</br>
+					the loop on focusing solely on the bottom line.
+				</p>
+				<p class="quote_section_author">Nandy Sweety</p>
+				<p class="quote_section_author_profession">UI Designer</p>
+			</section>
+	
+	
+			<!-- latest blog -->
+			<h1 class="latest_blog_header">Latest blog</h1>
+			<section class="latest_blog_section">
+				<article class="latest_blog_left_side">
+					<img  src="img/legs_n_sneakers.png" alt="oops">
+				</article>
+
+				<div class="latest_blog_right_side">
+					<h3>Colourful Offer:</h3>
+					<p>
+						Leverage agile framworks to provide a robust synopsis for high level</br>
+						overwiews. Iterative approaches to corporate strategy faster collabora-</br>
+						tive thinking to further the overall value proposition. Organically grow</br>
+						the holistic world view of disruptive
+					</p>
+	
+					<a href="html/latest_blog.html">Read more</a>
+				</div>
+			</section>
+		</main>
+
+
+		<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>PillowTalk</h3>
+
+				<p class="footer-links">
+					<a href="html/showcase.html" class="link-1">Popular arrivals</a>
+
+					<a href="html/first_shoe.html">Nike Air Force One MID id</a>
+
+					<a href="html/fall_collection.html">Fall collection</a>
+				
+					<a href="html/latest_blog.html">Latest blog</a>
+				</p>
+
+				<p class="footer-company-name">PillowTalk © 2021</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fas fa-map-marker-alt"></i>
+					<p><span>Ukraine, Lviv</span> Kozelnitska, 2</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+380673567741</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@pillowtalk.com" class="footer-email">support@pillowtalk.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+				<div class="footer-icons">
+
+					<a href="#"><i class="fab fa-facebook-square"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+					<a href="#"><i class="fab fa-instagram"></i></a>
+
+				</div>
+
+			</div>
+
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,751 @@
+@keyframes tonext {
+    75% {
+        left: 0;
+    }
+    95% {
+        left: 100%;
+    }
+    98% {
+        left: 100%;
+    }
+    99% {
+        left: 0;
+    }
+}
+
+@keyframes tostart {
+    75% {
+        left: 0;
+    }
+    95% {
+        left: -300%;
+    }
+    98% {
+        left: -300%;
+    }
+    99% {
+        left: 0;
+    }
+}
+
+@keyframes snap {
+    96% {
+        scroll-snap-align: center;
+    }
+    97% {
+        scroll-snap-align: none;
+    }
+    99% {
+        scroll-snap-align: none;
+    }
+    100% {
+        scroll-snap-align: center;
+    }
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+}
+
+* {
+    -ms-overflow-style: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    margin: auto auto;
+    padding: 0rem 10rem;
+}
+
+.header-nav {
+    background-color: #75d7bc;
+    color: #f5f5f5;
+}
+
+.header-nav > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header-nav > ul > li {
+    display: inline-block;
+    padding: 0 40px 0 40px;
+}
+
+.header-nav > ul > li > a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-family: "Baloo Tammudu 2", cursive;
+}
+
+.header-nav > ul > li.right {
+    /* float: right; */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    padding-top: 7px;
+}
+
+.header-logo {
+    position: absolute;
+    margin: 0;
+    padding-left: 60px;
+    padding-top: 25px;
+    font-size: 32px;
+}
+
+.header-logo > a {
+    text-decoration: none;
+    font-family: "Indie Flower", cursive;
+    color: #f5f5f5;
+}
+
+.socials-li {
+    padding-left: 500px;
+}
+
+.socials-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.socials-list > li {
+    display: inline-block;
+    padding: 0 5px 0 5px;
+}
+
+.socials-list > li > a {
+    color: #f5f5f5;
+}
+
+/* CAROUSEL SLIDER   */
+
+.carousel {
+    position: relative;
+    height: 400px;
+    /* padding-top: 75%; */
+    /* filter: drop-shadow(0 0 10px #0003); */
+    perspective: 100px;
+    margin-bottom: 50px;
+}
+
+.carousel__viewport {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+    height: 400px;
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    background-color: #f99;
+    counter-increment: item;
+}
+
+.carousel__slide:nth-child(even) {
+    background-color: #99f;
+}
+
+.carousel__slide:before {
+    content: counter(item);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -40%, 70px);
+    color: #fff;
+    font-size: 2em;
+}
+
+.carousel__snapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+    .carousel__snapper {
+        animation-name: tonext, snap;
+        animation-timing-function: ease;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+    }
+
+    .carousel__slide:last-child .carousel__snapper {
+        animation-name: tostart, snap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel__snapper {
+        animation-name: none;
+    }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+    animation-name: none;
+}
+
+.carousel__navigation {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    left: 0;
+    text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+    display: inline-block;
+}
+
+.carousel__navigation-button {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: #f5f5f5;
+    background-clip: content-box;
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+    position: absolute;
+    top: 0;
+    margin-top: 190px;
+    width: 4rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    font-size: 0;
+    outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+    left: 1rem;
+}
+
+.carousel::after,
+.carousel__next {
+    right: 1rem;
+}
+
+.carousel::before,
+.carousel::after {
+    content: "";
+    z-index: 1;
+    background-color: #333;
+    background-size: 1.5rem 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+.carousel::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+.carousel::after {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+}
+
+#carousel__slide1 {
+    background-image: url("../img/sneaker1slider.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#carousel__slide1:before {
+    content: "adidas stockholm";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -40%, 70px);
+    color: #fff;
+    font-size: 1em;
+    font-family: "Baloo Tammudu 2", cursive;
+}
+
+#carousel__slide2 {
+    background-image: url("../img/sneaker2slider.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#carousel__slide2:before {
+    content: "adidas athlokinisi";
+    font-size: 1em;
+    font-family: "Baloo Tammudu 2", cursive;
+}
+
+#carousel__slide3 {
+    background-image: url("../img/sneaker3slider.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#carousel__slide3:before {
+    content: "vans old skool";
+    font-size: 1em;
+    font-family: "Baloo Tammudu 2", cursive;
+}
+
+#carousel__slide4 {
+    background-image: url("../img/sneaker4slider.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#carousel__slide4:before {
+    content: "mizuno wave rider";
+    font-size: 1em;
+    font-family: "Baloo Tammudu 2", cursive;
+}
+
+/*sneakers showcase*/
+.showcase {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.showcase_arrival {
+    margin-top: 20%;
+    margin-bottom: 20%;
+}
+
+.floatshowcase {
+    display: flex;
+}
+
+.offer {
+    display: inline-block;
+    position: relative;
+}
+
+.arrival_div {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.arrival_img {
+    height: 100%;
+    display: inline-block;
+}
+
+.arr_ref_div {
+    top: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.arr_inner {
+    height: 100%;
+    display: inline-block;
+    width: 1px;
+    vertical-align: middle;
+}
+
+.arr_ref {
+    vertical-align: middle;
+    color: rgba(144, 243, 215, 0.5);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px;
+    border: 1px solid #fff;
+    background-color: rgb(144, 243, 215);
+    font-size: 12px;
+    opacity: 0;
+}
+
+.arr_ref:hover {
+    vertical-align: middle;
+    color: rgba(144, 243, 215, 0.5);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px;
+    border: 1px solid #fff;
+    background-color: rgb(144, 243, 215);
+    font-size: 12px;
+    opacity: 0.7;
+}
+/*sneakers showcase  END*/
+
+.socials {
+    width: 70px;
+    height: 150px;
+    /*left: 1000px;*/
+    position: relative;
+    /*float: right;*/
+    background-color: red;
+}
+
+.fall_collection_section {
+    padding: 8rem 0rem;
+    display: flex;
+}
+
+.fall_collection_left_side {
+    flex: 1;
+    padding-top: 10%;
+}
+.fall_collection_right_side {
+    flex: 1;
+    padding-top: 5%;
+}
+
+.fall_collection_left_side > h1{
+    margin: 1.5rem 0rem;
+    font-size: 25px;
+}
+
+.fall_collection_left_side > p{
+    margin: 1rem 0rem;
+    line-height: 1.5rem;
+}
+
+.fall_collection_left_side > a,
+.first_shoe > a{
+    text-decoration: none;
+    font-family: "opticubalibretwo";
+    color: initial;
+    pointer-events: auto;
+    cursor: pointer;
+
+    padding: 1rem 2rem;
+    margin: 2rem 1rem;
+
+    display: inline-block;
+    background-color: #75d7bc;
+
+    border: none;
+}
+
+.fall_collection_right_side > img {
+    height: 25rem;
+    margin: auto auto;
+    display: block;
+    box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+    -moz-box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+    -webkit-box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+    -khtml-box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+}
+
+.quote_section {
+    padding: 8rem 0rem;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+.quote_section > h1 {
+    font-size: 32px;
+    margin: 3rem 0rem;
+    color: black;
+}
+
+.quote_section > p {
+    line-height: 1.5rem;
+}
+
+.quote_section_author {
+    margin-top: 1.5rem;
+    font-size: 16px;
+    color: #9a9a9a;
+}
+.quote_section_author_profession {
+    color: #75d7bc;
+    font-size: 16px;
+}
+
+
+.latest_blog_section {
+	margin-bottom: 10rem;
+    display: flex;
+}
+.latest_blog_header {
+	text-align: center;
+	margin-top: 8rem;
+	margin-bottom: 3rem;
+	font-size: 32px;
+}
+.latest_blog_right_side > h3 {
+	padding-left: 2rem;
+	font-weight: bold;
+    margin: 1.5rem 0rem;
+    font-size: 19px;
+}
+.latest_blog_left_side {
+    flex: 1;
+}
+.latest_blog_right_side {
+    flex: 1;
+}
+.latest_blog_right_side > p {
+	padding-left: 2rem;
+    margin: 1rem 0rem;
+    line-height: 1.5rem;
+}
+.latest_blog_right_side > a {
+    text-decoration: none;
+    font-family: "opticubalibretwo";
+    color: initial;
+    pointer-events: auto;
+    cursor: pointer;
+
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    margin-left: 22rem;
+
+    display: inline-block;
+    background-color: #75d7bc;
+
+    border: none;
+}
+.latest_blog_left_side > img {
+    height: 25rem;
+    margin: auto auto;
+    display: block;
+    box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+    -moz-box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+    -webkit-box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+    -khtml-box-shadow: 8rem 5rem 0rem rgba(117, 215, 188, 0.56);
+}
+/* Footer */
+
+.footer-distributed {
+    background: #75d7bc;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px;
+    font-family: "Baloo Tammudu 2";
+    padding: 30px 30px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left {
+    width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3 {
+    font-family: "Indie Flower", cursive;
+    color: #f5f5f5;
+    font-size: 3em;
+    margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+    color: #ffffff;
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 400;
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer-distributed .footer-company-name {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+    width: 35%;
+}
+
+.footer-distributed .footer-center i {
+    background-color: #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center i.fa-phone {
+    font-size: 20px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center i.fa-map-marker-alt {
+    font-size: 22px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center p {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 400;
+    vertical-align: middle;
+    margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight: 300;
+    font-size: 20px;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+    content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right {
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 20px;
+    color: #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+
+    border-radius: 2px;
+
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.footer-email {
+    text-decoration: none;
+}
+
+@media (max-width: 880px) {
+    .footer-distributed {
+        font: bold 14px sans-serif;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .footer-distributed .footer-center i {
+        margin-left: 0;
+    }
+}
