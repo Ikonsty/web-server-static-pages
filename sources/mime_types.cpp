@@ -8,7 +8,7 @@ struct mapping {
     const char* extension;
     const char* mime_type;
 } mappings[] = {
-    {"git", "image/gif"},
+    {"gif", "image/gif"},
     {"htm", "text/html"},
     {"html", "text/html"},
     {"jpg", "image/jpeg"},

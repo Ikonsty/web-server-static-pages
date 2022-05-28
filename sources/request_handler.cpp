@@ -1,7 +1,8 @@
-#include "../includes/request_handler.hpp"
 #include <fstream>
 #include <sstream>
 #include <string>
+
+#include "../includes/request_handler.hpp"
 #include "../includes/mime_types.hpp"
 #include "../includes/reply.hpp"
 #include "../includes/request.hpp"
@@ -67,7 +68,7 @@ bool request_handler::url_decode(const std::string& in, std::string& out) {
     out.clear();
     out.reserve(in.size());
     for (size_t i = 0; i < in.size(); ++i) {
-        if (in[i] == '%') { // poison pill
+        if (in[i] == '%') {
             if (i + 3 <= in.size()) {
                 int value = 0;
                 std::istringstream is(in.substr(i + 1, 2));

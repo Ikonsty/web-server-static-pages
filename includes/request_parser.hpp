@@ -1,7 +1,8 @@
 ﻿#ifndef REQUEST_PARSER_HPP
 #define REQUEST_PARSER_HPP
 
-#include <tuple>
+#include <boost/tuple/tuple.hpp>
+#include <boost/logic/tribool.hpp>
 
 namespace http {
 namespace server {
@@ -18,29 +19,25 @@ public:
     /// Reset to initial parser state.
     void reset();
 
-    /// Result of parse.
-    enum result_type {
-        good, bad, indeterminate
-    };
-
     /// Parse some data. The enum return value is good when a complete request has
     /// been parsed, bad if the data is invalid, indeterminate when more data is
     /// required. The InputIterator return value indicates how much of the input
     /// has been consumed.
     template <typename InputIterator>
-    std::tuple<result_type, InputIterator> parse(request& req,
+    boost::tuple<boost::tribool, InputIterator> parse(request& req,
                                                  InputIterator begin, InputIterator end) {
         while (begin != end) {
-            result_type result = consume(req, *begin++);
-            if (result == good || result == bad)
-                return std::make_tuple(result, begin);
+            boost::tribool result = consume(req, *begin++);
+            if (result || !result)
+                return boost::make_tuple(result, begin);
         }
-        return std::make_tuple(indeterminate, begin);
+        boost::tribool result = boost::indeterminate;
+        return boost::make_tuple(result, begin);
     }
 
 private:
     /// Handle the next character of input.
-    result_type consume(request& req, char input);
+    boost::tribool consume(request& req, char input);
 
     /// Check if a byte is an HTTP character.
     static bool is_char(int c);

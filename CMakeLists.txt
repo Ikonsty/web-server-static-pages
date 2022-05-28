@@ -57,21 +57,24 @@ include(cmake/CompilerWarnings.cmake)
 #! Project main executable source compilation
 set(SOURCES sources/server.cpp
             sources/connection.cpp
-            sources/connection_manager.cpp
             sources/mime_types.cpp
             sources/request_handler.cpp
             sources/reply.cpp
-            sources/request_parser.cpp)
+            sources/request_parser.cpp
+            sources/config_parser.cpp
+            sources/help_functions.cpp)
 
 set(INCLUDES includes/server.hpp
             includes/connection.hpp
-            includes/connection_manager.hpp
             includes/request.hpp
             includes/header.hpp
             includes/mime_types.hpp
             includes/request_handler.hpp
             includes/reply.hpp
-            includes/request_parser.hpp)
+            includes/request_parser.hpp
+            includes/config_parser.hpp
+            includes/errors.hpp
+            includes/help_functions.hpp)
 
 add_executable(${PROJECT_NAME} main.cpp ${SOURCES} ${INCLUDES})
 

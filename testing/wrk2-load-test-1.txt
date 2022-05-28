@@ -1,0 +1,69 @@
+$ wrk -t1 -c200 -d20s -R30000 http://127.0.0.1:8000/
+
+Running 20s test @ http://127.0.0.1:8000/
+  1 threads and 200 connections
+  Thread calibration: mean lat.: 2485.547ms, rate sampling interval: 8962ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.17s     1.27s    9.39s    57.93%
+    Req/Sec    15.35k     0.00    15.35k     0.00%
+  289016 requests in 20.00s, 54.85MB read
+Requests/sec:  14450.33
+Transfer/sec:      2.74MB
+
+
+$wrk -t2 -c200 -d30s -R20000 http://127.0.0.1:8000/
+
+Running 30s test @ http://127.0.0.1:8000/
+  2 threads and 200 connections
+  Thread calibration: mean lat.: 1584.616ms, rate sampling interval: 5750ms
+  Thread calibration: mean lat.: 1582.674ms, rate sampling interval: 5750ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     6.34s     1.83s    9.52s    57.80%
+    Req/Sec     6.76k    35.75     6.81k    66.67%
+  404854 requests in 30.00s, 76.83MB read
+Requests/sec:  13495.11
+Transfer/sec:      2.56MB
+
+
+==========================================================
+1 thread:
+
+Running 30s test @ http://127.0.0.1:8000/
+  2 threads and 200 connections
+  Thread calibration: mean lat.: 2872.546ms, rate sampling interval: 10248ms
+  Thread calibration: mean lat.: 2874.408ms, rate sampling interval: 10248ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    11.47s     3.37s   17.30s    57.64%
+    Req/Sec     6.07k     0.00     6.07k     0.00%
+  350762 requests in 30.00s, 66.57MB read
+Requests/sec:  11692.16
+Transfer/sec:      2.22MB
+
+
+2 thread:
+
+Running 30s test @ http://127.0.0.1:8000/
+  2 threads and 200 connections
+  Thread calibration: mean lat.: 1265.554ms, rate sampling interval: 5414ms
+  Thread calibration: mean lat.: 1387.183ms, rate sampling interval: 5394ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.96s     1.86s    9.31s    58.91%
+    Req/Sec    10.11k   275.65    10.48k    33.33%
+  604767 requests in 30.00s, 114.77MB read
+Requests/sec:  20158.98
+Transfer/sec:      3.83MB
+
+
+3 threads:
+
+Running 30s test @ http://127.0.0.1:8000/
+  2 threads and 200 connections
+  Thread calibration: mean lat.: 156.848ms, rate sampling interval: 669ms
+  Thread calibration: mean lat.: 247.331ms, rate sampling interval: 756ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   816.92ms  327.15ms   1.74s    70.63%
+    Req/Sec    14.38k   652.33    15.84k    72.22%
+  843631 requests in 30.00s, 160.11MB read
+Requests/sec:  28119.08
+Transfer/sec:      5.34MB
+
